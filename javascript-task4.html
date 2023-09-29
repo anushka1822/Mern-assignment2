@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>JavascriptTask4</title>
+		<script>
+			function showName() {
+			    // Get the element where you want to display the name
+			    const nameDisplay = document.getElementById("nameDisplay");
+
+			    // Prompt the user for their name and display it
+			    const userName = prompt("Enter your name:");
+			    if (userName !== null && userName !== "") {
+			        nameDisplay.textContent = `Name: ${userName}`;
+			    }
+			}
+
+			function showDateTime() {
+			    // Get the element where you want to display date/time information
+			    const dateTimeDisplay = document.getElementById("dateTimeDisplay");
+
+			    // Create a new Date object to get the current date and time
+			    const currentDate = new Date();
+
+			    // Format the date and time information
+			    const day = currentDate.toLocaleDateString("en-US", { weekday: "long" });
+			    const date = currentDate.toLocaleDateString("en-US", { day: "numeric" });
+			    const month = currentDate.toLocaleDateString("en-US", { month: "long" });
+			    const year = currentDate.toLocaleDateString("en-US", { year: "numeric" });
+			    const time = currentDate.toLocaleTimeString("en-US");
+			    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+			    // Display the information
+			    dateTimeDisplay.textContent = `Day: ${day}, Date: ${date}, Month: ${month}, Year: ${year}, Time: ${time}, Timezone: ${timeZone}`;
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Show Name and Date/Time</h1>
+		<button onclick="showName()">Show Name</button>
+		<button onclick="showDateTime()">Show Date/Time</button>
+		<p id="nameDisplay"></p>
+		<p id="dateTimeDisplay"></p>
+	</body>
+</html>
